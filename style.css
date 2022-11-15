@@ -1,0 +1,48 @@
+* {
+  border: 1px solid red;
+}
+
+body {
+  padding: 5% 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#text-input {
+  width: 70%;
+}
+
+#meme-image-container {
+  margin-top: 30px;
+  width: 70%;
+  height: 500px;
+  /* background-size: cover; */
+  position: relative;
+}
+
+#meme-text {
+  text-align: justify;
+  width: 90%;
+  height: fit-content;
+  min-height: 40px;
+  word-wrap: break-word;
+  position: absolute;
+  top: 400px;
+  left: 10%;
+  font-size: 40px;
+  z-index: 1;
+  margin: 0;
+}
+
+#meme-image {
+  width: 100%;
+  height: 100%;
+}
