@@ -4,6 +4,8 @@ const memeText = document.getElementById('meme-text');
 const memeImage = document.getElementById('meme-image');
 const memeContainer = document.getElementById('meme-image-container');
 const buttonsSection = document.getElementById('buttons-section');
+const tamplates = document.getElementById('templates');
+const imagesPath = ['images/download(1).jpeg', 'images/download.jpeg', 'images/Screenshot.png', 'images/weird.webp'];
 const buttons = [
 {
   id: 'fire',
@@ -22,7 +24,6 @@ const buttons = [
 },
 ];
 
-console.log(memeImage.src);
 input.addEventListener('keyup', () => {
   memeText.innerText = input.value;
 });
@@ -41,4 +42,11 @@ for (let index = 0; index < buttons.length; index += 1) {
   button.innerText = button.id;
   button.style.color = 'white';
   buttonsSection.appendChild(button);
+}
+
+for (let index = 0; index < imagesPath.length; index += 1) {
+  const img = document.createElement('img');
+  img.id = 'meme-' + (index + 1);
+  img.src = imagesPath[index];
+  tamplates.appendChild(img);
 }
