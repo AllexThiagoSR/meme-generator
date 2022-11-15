@@ -23,7 +23,6 @@ main {
 #meme-image-container {
   margin-top: 30px;
   width: 70%;
-  min-height: 500px;
   height: 500px;
   position: relative;
   display: flex;
@@ -47,4 +46,15 @@ main {
   height: 100%;
   position: absolute;
   z-index: -1;
+}
+
+#buttons-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  margin-top: 20px;
+}
+
+#buttons-section button {
+  min-width: 100px;
 }
