@@ -7,7 +7,7 @@ const buttonsSection = document.getElementById('buttons-section'); // Captura a 
 const tamplates = document.getElementById('templates'); // Captura a seção onde ficarão os tamplates de memes
 const form = document.querySelector('form'); // Captura o formulário onde ficam os inputs de texto e imagem
 const imagesPath = ['imgs/meme1.png', 'imgs/meme2.png', 'imgs/meme3.png', 'imgs/meme4.png']; // Caminhos das imagens de tamplates
-// Array de objetos onde cada objeto representa um botão que vai mudar a moldura do preview do meme
+// Array de objetos onde cada objeto representa um dos botões que mudam a moldura do preview do meme
 const buttons = [
   {
     id: 'fire',
@@ -26,37 +26,44 @@ const buttons = [
   },
 ];
 
+// Adiciona o evento de input no campo de input de texto
 input.addEventListener('input', () => {
-  memeText.innerText = input.value;
+  memeText.innerText = input.value; // Pega o valor atual do input e insere no innerText do parágrafo onde fica o texto do meme
 });
 
+// Adiciona o evento change no campo de input de imagens
 memeInsert.addEventListener('change', () => {
-  memeImage.src = URL.createObjectURL(memeInsert.files[0]);
+  memeImage.src = URL.createObjectURL(memeInsert.files[0]); // Captura o primeiro valor da FileList que fica guardada na propriedade files do campo de input de arquivos
+  // URL.creatObjectURl() cria um um URL que pode ser usado como source a partir de um dos valores de files
 });
 
+// Cria os botões com as especificações citadas no array de objetos
 buttons.forEach((button) => {
-  const createdButton = document.createElement('button');
-  createdButton.id = button.id;
-  createdButton.className = button.className;
-  createdButton.value = button.border;
+  const createdButton = document.createElement('button'); // Cria um elemento button
+  createdButton.id = button.id; // Define o id do button criado para o do objeto button atual do loop forEach
+  createdButton.className = button.className; // Define o className do button criado para o className do objeto button atual do loop forEach
+  createdButton.value = button.border; // Define o valor do button criado para o estilo de borda que ele aplicará com base no objeto button atual do loop forEach
+  // Adiciona o evento de click no botão criado
   createdButton.addEventListener('click', (event) => {
-    memeContainer.style.border = event.target.value;
+    memeContainer.style.border = event.target.value; // Modifica o estilo da borda do meme-container para o valor do botão clicado
   });
-  createdButton.innerText = button.id;
-  createdButton.style.color = 'white';
-  buttonsSection.appendChild(createdButton);
+  createdButton.innerText = button.id; // Defina o innerText do button criado para o mesmo nome do id do objeto button do loop atual do forEach
+  buttonsSection.appendChild(createdButton); // Adiciona o button criado na seção de botões no documento HTML
 });
 
+// Cria as imagens de tamplates de memes
 imagesPath.forEach((path, index) => {
-  const img = document.createElement('img');
-  img.id = `meme-${index + 1}`;
-  img.src = path;
+  const img = document.createElement('img'); // Cria um elemento img
+  img.id = `meme-${index + 1}`; // Define o id da img criado como meme-(indexDoElemento atual + 1)
+  img.src = path; // Define o src da img criada como o caminho(path) da imagem atual do loop forEach
+  // Adiciona o evento de click na img criada
   img.addEventListener('click', (event) => {
-    memeImage.src = event.target.src;
+    memeImage.src = event.target.src; // Defina o src da img do meme como o mesmo src da img de tamplate que foi clicada
   });
-  tamplates.appendChild(img);
+  tamplates.appendChild(img); // Adiciona a img criada na seção de tamplates
 });
 
+// Adiciona o evento de submit no formulário
 form.addEventListener('submit', (event) => {
-  event.preventDefault();
+  event.preventDefault(); // Previne que o recarregue a página ao enviar o formulário
 });
