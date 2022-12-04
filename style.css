@@ -17,10 +17,6 @@ main {
   align-items: center;
 }
 
-#text-input {
-  width: 70%;
-}
-
 #meme-image-container {
   width: 70%;
   height: 500px;
@@ -76,6 +72,7 @@ main {
   align-items: center;
   margin-top: 30px;
   background-color: rgb(207 , 79 , 242);
+  border-radius: 30px;
 }
 
 #templates img {
